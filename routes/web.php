@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BeneficiaryController;
+use App\Http\Controllers\TransactionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,4 +20,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::resource('/beneficiaries', BeneficiaryController::class);
+    Route::get('/transactions', [TransactionController::class, 'index'])->name('admin.transactions');
+    Route::post('/send-funds', [TransactionController::class, 'sendFunds'])->name('admin.sendFunds');
+});
+
+require __DIR__ . '/auth.php';
