@@ -1,7 +1,10 @@
 PesaMtaani - A  Blockchain-powered Cash Transfer System
 
 
+
 PesaMtaani is a cash transfer system designed to empower beneficiaries in developing countries, specifically rural areas in Kenya. It leverages blockchain technology to reduce transaction costs and ensure seamless, secure fund transfers. The system supports USSD access, making it accessible even to users without smartphones or internet access.
+
+![pesa mtaani](https://github.com/user-attachments/assets/70c7347b-0aa9-43c4-ac2a-c919e339a14e)
 
 🌟 Features
 
